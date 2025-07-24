@@ -11,13 +11,5 @@ import java.util.List;
 import java.util.Optional;
 
 public interface BookRepository extends JpaRepository<Book, Long> {
-    @Modifying
-    @Query("UPDATE Book b SET b.price = :price WHERE b.id = :id")
-    @Transactional
-    void updateBookPrice(@Param("id") Long id, @Param("price") double price);
 
-    @Modifying
-    @Query("DELETE FROM Book b WHERE b.id = :id")
-    @Transactional
-    void deleteBook(@Param("id") Long id);
 }

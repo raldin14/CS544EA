@@ -73,15 +73,15 @@ public class CustomerApplication implements CommandLineRunner{
 		// Update book
 		System.out.println("Books update:");
 		System.out.println("-------------------------------");
-
-		bookRepository.updateBookPrice(cc.getId(), 45.99);
+		cc.setPrice(49.99);
+		bookRepository.save(cc);
 		System.out.println();
 
 		// delete book
 		System.out.println("Books Delete:");
 		System.out.println("-------------------------------");
 
-		bookRepository.deleteBook(ej.getId());
+		bookRepository.delete(ej);
 		System.out.println();
 
 		// fetch all books again

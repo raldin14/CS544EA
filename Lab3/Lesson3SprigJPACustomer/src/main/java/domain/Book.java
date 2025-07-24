@@ -25,6 +25,7 @@ public class Book {
     }
 
     public long getId(){ return id;}
+    public void setPrice(Double price){this.price = price;}
     @Override
     public String toString() {
         return String.format("Book[id=%d, title='%s', ISBN='%s', author='%s', price='%.2f']", id, title, ISBN, author,price);
