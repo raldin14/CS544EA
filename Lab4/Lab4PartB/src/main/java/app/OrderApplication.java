@@ -4,18 +4,21 @@ import domain.Customer;
 import domain.Order;
 import domain.OrderLine;
 import domain.Product;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import repositories.CustomerRepository;
 
 @SpringBootApplication
 @EnableJpaRepositories("repositories")
 @EntityScan("domain") 
 public class OrderApplication implements CommandLineRunner{
 	
-
+	@Autowired
+	CustomerRepository customerRepository;
 	public static void main(String[] args) {
 		SpringApplication.run(OrderApplication.class, args);
 	}
@@ -43,7 +46,7 @@ public class OrderApplication implements CommandLineRunner{
 		c1.addOrder(o1);
 		o1.setCustomer(c1);
 
-
+		customerRepository.save(c1);
 		printOrder(o1);
 	}
 

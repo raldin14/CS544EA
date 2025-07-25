@@ -1,16 +1,20 @@
 package domain;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
-
+@Entity
+@Table(name = "Orders")
 public class Order {
-
+	@Id
 	private String ordernr;
 	private String date;
 	private String status;
+	@ManyToOne
 	private Customer customer;
+	@OneToMany(mappedBy = "order", cascade = CascadeType.PERSIST)
 	private Collection<OrderLine> orderlines = new ArrayList<OrderLine>();
 
 	public Order() {

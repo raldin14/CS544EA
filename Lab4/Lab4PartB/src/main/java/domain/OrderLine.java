@@ -1,10 +1,17 @@
 package domain;
 
 
+import javax.persistence.*;
 
+@Entity
 public class OrderLine {
+	@Id
+	@GeneratedValue
+	private long id;
 
 	private int quantity;
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "product_id")
 	private Product product;
 
 	public OrderLine() {
