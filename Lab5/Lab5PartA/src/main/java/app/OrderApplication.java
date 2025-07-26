@@ -1,9 +1,6 @@
 package app;
 
-import domain.Customer;
-import domain.Order;
-import domain.OrderLine;
-import domain.Product;
+import domain.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -26,16 +23,19 @@ public class OrderApplication implements CommandLineRunner{
 
 	@Override
 	public void run(String... args) throws Exception {
-		Product product = new Product();
+		Book product = new Book();
 		product.setName("Hibernate 3");
 		product.setDescription("Good book on Hibernate");
 		product.setPrice(35.50);
+		product.setIsbn(123456);
 		OrderLine ol1 = new OrderLine(2, product);
+//		Book book = new Book(product.getName(),product.getDescription(), product.getPrice(), 123456);
 
-		Product product2 = new Product();
+		CD product2 = new CD();
 		product2.setName("The best of Queen");
 		product2.setDescription("Album from 1995");
 		product2.setPrice(12.98);
+		product2.setArtis("Queen");
 		OrderLine ol2 = new OrderLine(4, product2);
 
 		Order o1 = new Order("234743", "12/10/06", "open");

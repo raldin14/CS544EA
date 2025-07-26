@@ -1,0 +1,50 @@
+package bank.dao;
+
+import java.util.*;
+
+import bank.domain.Account;
+import bank.repository.AccountRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class AccountDAO implements IAccountDAO {
+	@Autowired
+	AccountRepository accountRepository;
+
+	Collection<Account> accountlist = new ArrayList<Account>();
+
+	public void saveAccount(Account account) {
+		// System.out.println("AccountDAO: saving account with accountnr ="+account.getAccountnumber());
+		accountlist.add(account); // add the new
+		accountRepository.save(account);
+	}
+
+	public void updateAccount(Account account) {
+		// System.out.println("AccountDAO: update account with accountnr ="+account.getAccountnumber());
+		Account accountexist = loadAccount(account.getAccountnumber());
+		if (accountexist != null) {
+			accountlist.remove(accountexist); // remove the old
+			accountlist.add(account); // add the new
+			accountRepository.save(account);
+		}
+
+	}
+
+	public Account loadAccount(long accountnumber) {
+		// System.out.println("AccountDAO: loading account with accountnr ="+accountnumber);
+		for (Account account : accountlist) {
+			if (account.getAccountnumber() == accountnumber) {
+				return account;
+			}
+		}
+		return null;
+	}
+
+	public Collection<Account> getAccounts() {
+
+//		return accountlist;
+		return accountRepository.findAll();
+	}
+
+}

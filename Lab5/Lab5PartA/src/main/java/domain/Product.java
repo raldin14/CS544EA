@@ -1,11 +1,14 @@
 package domain;
 
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
+@DiscriminatorColumn(
+		name = "product_type",
+		discriminatorType = DiscriminatorType.STRING
+)
 public class Product {
 	@Id
 	@GeneratedValue
