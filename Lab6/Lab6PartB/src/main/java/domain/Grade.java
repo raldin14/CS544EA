@@ -3,6 +3,7 @@ package domain;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 
 @Entity
 public class Grade {
@@ -10,6 +11,8 @@ public class Grade {
     @GeneratedValue
     private long id;
     private double grade;
+    @ManyToOne
+    private Course course;
 
     public Grade() {
     }

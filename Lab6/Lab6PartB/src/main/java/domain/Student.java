@@ -1,8 +1,9 @@
 package domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Student {
@@ -10,6 +11,10 @@ public class Student {
     @GeneratedValue
     private long studentNumber;
     private String name;
+    @ManyToOne
+    private Department department;
+    @ManyToMany
+    List<Grade> grades = new ArrayList<>();
 
     public Student() {
     }
@@ -24,6 +29,10 @@ public class Student {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void addGrades(Grade grade){
+        grades.add(grade);
     }
 
     @Override
