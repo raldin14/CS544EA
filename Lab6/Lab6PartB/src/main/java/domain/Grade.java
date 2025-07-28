@@ -1,9 +1,6 @@
 package domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 @Entity
 public class Grade {
@@ -11,7 +8,8 @@ public class Grade {
     @GeneratedValue
     private long id;
     private double grade;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name = "course_id")
     private Course course;
 
     public Grade() {
@@ -27,6 +25,14 @@ public class Grade {
 
     public void setGrade(double grade) {
         this.grade = grade;
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 
     @Override

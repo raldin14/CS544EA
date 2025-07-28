@@ -11,9 +11,10 @@ public class Student {
     @GeneratedValue
     private long studentNumber;
     private String name;
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     private Department department;
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+    @JoinColumn(name = "student_id")
     List<Grade> grades = new ArrayList<>();
 
     public Student() {
@@ -33,6 +34,14 @@ public class Student {
 
     public void addGrades(Grade grade){
         grades.add(grade);
+    }
+
+    public Department getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(Department department) {
+        this.department = department;
     }
 
     @Override
