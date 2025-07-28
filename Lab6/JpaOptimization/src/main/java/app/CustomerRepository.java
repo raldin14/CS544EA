@@ -15,7 +15,7 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
     @Modifying
     @Transactional
     @Query("update Customer c set c.name = :name")
-    int updateNames(@Param("name") String name);
+    int bulkUpdateNames(@Param("name") String name);
 }
 
 
