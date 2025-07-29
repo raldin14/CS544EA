@@ -19,20 +19,27 @@ public class BankService {
 	private CustomerRepository customerRepository;
 	@Autowired
 	private EmailSender emailSender;
-	
+	@Autowired
+	private TracerecordService tracerecordService;
 	@Transactional
 	public void createCustomerAndAccount(int customerId, String customerName, String emailAddress, String AccountNumber){
 		try {
-			Account account = new Account(AccountNumber);
-			accountRepository.save(account);
-			Customer customer = new Customer(customerId, customerName);
-			customer.setAccount(account);
-			customerRepository.saveCustomer(customer);
+			makeTransaction( customerId,  customerName,  emailAddress,  AccountNumber);
 			emailSender.sendEmail(emailAddress, "Welcome "+customerName);
+			tracerecordService.logTracerecord("Customer "+customerName+" created with account "+AccountNumber);
 		}catch (Exception ex){
 			emailSender.sendEmail(emailAddress, "We could not create your account "+customerName);
+			tracerecordService.logTracerecord("Could not create customer "+customerName+" with account "+AccountNumber);
 		}
+	}
 
+	@Transactional
+	public void makeTransaction(int customerId, String customerName, String emailAddress, String AccountNumber){
+		Account account = new Account(AccountNumber);
+		accountRepository.save(account);
+		Customer customer = new Customer(customerId, customerName);
+		customer.setAccount(account);
+		customerRepository.saveCustomer(customer);
 	}
 
 }
