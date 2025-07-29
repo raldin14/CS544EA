@@ -1,0 +1,2 @@
+Lazy loading improves performance by deferring database access. With @Transactional, we don't need eager loading anymore, 
+because the active transaction keeps the Hibernate session open, allowing lazy loading to work correctly.
