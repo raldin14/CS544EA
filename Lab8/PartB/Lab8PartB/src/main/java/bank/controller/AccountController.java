@@ -22,7 +22,7 @@ public class AccountController {
 
     @PostMapping("/{accountNumber}/deposit")
     public ResponseEntity<?> deposit(@PathVariable("accountNumber") long accountNumber,@RequestParam double amount, @RequestParam String currency){
-        if(currency.equals("euro")){
+        if(currency.equalsIgnoreCase("euro")){
             accountService.depositEuros(accountNumber,amount);
         }else {
             accountService.deposit(accountNumber, amount);
@@ -32,7 +32,7 @@ public class AccountController {
 
     @PostMapping("/{accountNumber}/withdraw")
     public ResponseEntity<?> withdraw(@PathVariable("accountNumber") long accountNumber,@RequestParam double amount, @RequestParam String currency){
-        if(currency.equals("euro")){
+        if(currency.equalsIgnoreCase("euro")){
             accountService.withdrawEuros(accountNumber,amount);
         }else {
             accountService.withdraw(accountNumber, amount);
