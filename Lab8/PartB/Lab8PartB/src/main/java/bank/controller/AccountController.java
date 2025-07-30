@@ -6,6 +6,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collection;
+import java.util.List;
+
 @RestController
 @RequestMapping("/api/bank")
 public class AccountController {
@@ -41,5 +44,11 @@ public class AccountController {
     public ResponseEntity<?> transferFunds(@PathVariable("accountNumber") long accountNumber, @PathVariable("accountBenefit") long accountBenefit,@RequestParam  double amount,@RequestParam  String description){
         accountService.transferFunds(accountNumber,accountBenefit,amount,description);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping
+    public ResponseEntity<?> getAllAccounts(){
+        Collection<AccountDTO> accounts = accountService.getAllAccounts();
+        return new ResponseEntity<Collection<AccountDTO>>(accounts,HttpStatus.OK);
     }
 }
