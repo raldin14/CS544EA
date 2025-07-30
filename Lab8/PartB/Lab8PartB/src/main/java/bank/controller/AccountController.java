@@ -17,15 +17,28 @@ public class AccountController {
         return new ResponseEntity<AccountDTO>(accountService.createAccount(accountnumber,customer), HttpStatus.OK);
     }
 
-    @PostMapping("/deposit")
-    public ResponseEntity<?> deposit(@RequestParam long accountNumber, double amount){
-        accountService.deposit(accountNumber, amount);
+    @PostMapping("/{accountNumber}/deposit")
+    public ResponseEntity<?> deposit(@PathVariable("accountNumber") long accountNumber,@RequestParam double amount, @RequestParam String currency){
+        if(currency.equals("euro")){
+            accountService.depositEuros(accountNumber,amount);
+        }else {
+            accountService.deposit(accountNumber, amount);
+        }
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/euro")
-    public ResponseEntity<?> depositEuro(@RequestParam long accountNumber, double amount){
-        accountService.depositEuros(accountNumber,amount);
+    @PostMapping("/{accountNumber}/withdraw")
+    public ResponseEntity<?> withdraw(@PathVariable("accountNumber") long accountNumber,@RequestParam double amount, @RequestParam String currency){
+        if(currency.equals("euro")){
+            accountService.withdrawEuros(accountNumber,amount);
+        }else {
+            accountService.withdraw(accountNumber, amount);
+        }
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @PostMapping("/{accountNumber}/transfer")
+    public ResponseEntity<?> transferFunds(@PathVariable("accountNumber") long accountNumber){
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
