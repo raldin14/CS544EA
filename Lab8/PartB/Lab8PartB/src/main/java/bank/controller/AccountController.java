@@ -37,8 +37,9 @@ public class AccountController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
-    @PostMapping("/{accountNumber}/transfer")
-    public ResponseEntity<?> transferFunds(@PathVariable("accountNumber") long accountNumber){
+    @PostMapping("/{accountNumber}/transfer/{accountBenefit}")
+    public ResponseEntity<?> transferFunds(@PathVariable("accountNumber") long accountNumber, @PathVariable("accountBenefit") long accountBenefit,@RequestParam  double amount,@RequestParam  String description){
+        accountService.transferFunds(accountNumber,accountBenefit,amount,description);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 }
