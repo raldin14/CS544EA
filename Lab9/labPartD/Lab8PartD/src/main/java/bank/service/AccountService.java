@@ -22,7 +22,8 @@ public class AccountService implements IAccountService {
 	private IJMSSender jmsSender;
 	@Autowired
 	private ILogger logger;
-
+	@Autowired
+	Sender sender;
 
 
 	public AccountDTO createAccount(long accountNumber, String customerName) {
@@ -31,6 +32,8 @@ public class AccountService implements IAccountService {
 		account.setCustomer(customer);
 		accountDAO.save(account);
 		logger.log("createAccount with parameters accountNumber= "
+				+ accountNumber + " , customerName= " + customerName);
+		sender.send("topicA","createAccount with parameters accountNumber= "
 				+ accountNumber + " , customerName= " + customerName);
 		return AccountAdapter.getAccountDTOFromAccount(account);
 	}
@@ -41,6 +44,8 @@ public class AccountService implements IAccountService {
 		account.deposit(amount);
 		accountDAO.save(account);
 		logger.log("deposit with parameters accountNumber= " + accountNumber
+				+ " , amount= " + amount);
+		sender.send("topicA","deposit with parameters accountNumber= " + accountNumber
 				+ " , amount= " + amount);
 		if (amount > 10000) {
 			jmsSender.sendJMSMessage("Deposit of $ " + amount
@@ -65,6 +70,8 @@ public class AccountService implements IAccountService {
 		accountDAO.save(account);
 		logger.log("withdraw with parameters accountNumber= " + accountNumber
 				+ " , amount= " + amount);
+		sender.send("topicA","withdraw with parameters accountNumber= " + accountNumber
+				+ " , amount= " + amount);
 	}
 
 
@@ -74,6 +81,8 @@ public class AccountService implements IAccountService {
 		account.deposit(amountDollars);
 		accountDAO.save(account);
 		logger.log("depositEuros with parameters accountNumber= "
+				+ accountNumber + " , amount= " + amount);
+		sender.send("topicA","depositEuros with parameters accountNumber= "
 				+ accountNumber + " , amount= " + amount);
 		if (amountDollars > 10000) {
 			jmsSender.sendJMSMessage("Deposit of $ " + amount
@@ -87,6 +96,8 @@ public class AccountService implements IAccountService {
 		account.withdraw(amountDollars);
 		accountDAO.save(account);
 		logger.log("withdrawEuros with parameters accountNumber= "
+				+ accountNumber + " , amount= " + amount);
+		sender.send("topicA","withdrawEuros with parameters accountNumber= "
 				+ accountNumber + " , amount= " + amount);
 	}
 
