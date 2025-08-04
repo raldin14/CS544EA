@@ -16,7 +16,7 @@ public class UserProperty {
     private String username;
     @NotBlank
     @Size(max = 15, min = 8)
-    private String password; // in real apps don’t log raw passwords
+    private String password; 
 
     public String getFirstname() { return firstname; }
     public void setFirstname(String firstname) { this.firstname = firstname; }
