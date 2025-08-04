@@ -1,0 +1,18 @@
+app:
+  name: Lab10PartC
+  version: 1.2.3
+  server:
+    url: https://domain.com
+    name: PrimaryServer
+  countries:
+    - USA
+    - Canada
+    - Mexico
+    - Brazil
+    - France
+
+user:
+  firstname: Raldin
+  lastname: Hidalgo
+  username: raldin.h
+  password: SuperSecret123
