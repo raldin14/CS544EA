@@ -1,0 +1,7 @@
+spring:
+  datasource:
+    url: jdbc:mysql://localhost:3306/eadb
+    username: root
+    password: Rald141187
+    driver-class-name: org.hsqldb.jdbcDriver
+    
