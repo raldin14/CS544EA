@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42b297f1-254a-4bb9-91b5-c954cb9f372a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/../Lab12Part1/src/main/java/Application/SecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Lab12Part1/src/main/java/Application/ShopController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest.zip" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/src/main/java/org/example/Calculator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/src/main/java/org/example/DivideByZeroException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/src/main/java/org/example/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/src/test/java/CalculatorHamcrestTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../../Lab11/UnitTest/src/test/java/CalculatorTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12Part5/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12Part5/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Lab12Part5/src/main/java/Application/Lab12Part5Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12Part5/src/main/java/Application/Lab12Part5Application.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
