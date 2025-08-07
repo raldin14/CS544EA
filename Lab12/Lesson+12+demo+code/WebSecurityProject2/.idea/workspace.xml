@@ -5,8 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="42b297f1-254a-4bb9-91b5-c954cb9f372a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../Lab12Part5/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12Part5/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Lab12Part5/src/main/java/Application/Lab12Part5Application.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Lab12Part5/src/main/java/Application/Lab12Part5Application.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,30 +113,5 @@
       <updated>1605045911785</updated>
     </task>
     <servers />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/myapplication/controller/MyController.java</url>
-          <line>24</line>
-          <option name="timeStamp" value="4" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/myapplication/controller/MyController.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-method">
-          <url>file://$PROJECT_DIR$/src/main/java/myapplication/controller/MyController.java</url>
-          <line>25</line>
-          <properties class="myapplication.controller.MyController" method="getTopManagerInfo">
-            <option name="EMULATED" value="true" />
-            <option name="WATCH_EXIT" value="false" />
-          </properties>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>
